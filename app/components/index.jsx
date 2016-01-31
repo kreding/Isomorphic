@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router } from 'react-router';
+import { Router, match } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
+import createLocation from 'history/lib/createLocation';
 import routes from 'routes';
 import { makeStore } from 'helpers';
 import { Provider } from 'react-redux';
@@ -9,6 +10,7 @@ import { fromJS } from 'immutable';
 import 'css/master.scss';
 
 const history = createBrowserHistory();
+const location = createLocation();
 
 let initialState = window.__INITIAL_STATE__;
 
@@ -20,8 +22,11 @@ Object.keys(initialState)
 
 const store = makeStore(initialState);
 
-render(
+match({routes, location}, (error, redirectLocation, renderProps)=>{
+  render(
     <Provider store={store}>
-        <Router children={routes} history={history} />
+      <Router children={routes} history={history} />
     </Provider>,
-    document.getElementById('app'));
+    document.getElementById('app')
+  );
+});

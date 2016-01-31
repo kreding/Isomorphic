@@ -14,6 +14,8 @@ import { setItems, setCart } from 'actions/ProductsActions';
 import items from 'server/fake-database-items.js';
 import cart from 'server/fake-database-cart.js';
 
+global.isBrowser = false;
+
 var app = express();
 
 app.use(bodyParser.json());

@@ -10,7 +10,8 @@ module.exports = {
     ],
     output: {
         path: path.join(__dirname, 'public'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        chunkFilename: '[id].chunk.js'
     },
     resolve: {
         modulesDirectories: ['node_modules', 'app'],
@@ -42,6 +43,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({isBrowser: true}),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
     ],
