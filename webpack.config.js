@@ -27,10 +27,11 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loaders: [
-                    'style',
-                    'css',
+                    'style?sourceMap',
+                    'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
                     'autoprefixer?browsers=last 3 versions',
-                    'sass?outputStyle=expanded'
+                    'resolve-url',
+                    'sass?outputStyle=expanded&sourceMap'
                 ]
             },
             {
