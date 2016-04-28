@@ -12,7 +12,7 @@ import 'css/master.scss';
 const history = createBrowserHistory();
 const location = createLocation();
 
-let initialState = window.__INITIAL_STATE__;
+let initialState = window ? window.__INITIAL_STATE__ : {};
 
 // Transform into Immutable.js collections, but leave top level keys untouched
 Object.keys(initialState)
