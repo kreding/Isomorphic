@@ -17,7 +17,7 @@ export class Home extends React.Component {
                         className="products__item-button"
                         onClick={this.onCartChange.bind(this, isInCart, product.id)}
                     >
-                        {isInCart ? 'Remove from Cart' : 'Add to Cart'}
+                        {isInCart ? 'Remove from Cart' : 'Add 2 Cart'}
                     </button>
                     <div>{product.description}</div>
                 </div>

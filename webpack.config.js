@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devtool: 'inline-source-map',
@@ -11,8 +12,8 @@ module.exports = {
     ],
     output: {
         path: path.join(__dirname, 'public'),
-        filename: 'bundle.js',
-        chunkFilename: '[id].chunk.js'
+        filename: '[name].[hash:8].js',
+        chunkFilename: '[id].chunk.[chunkhash:8].js'
     },
     resolve: {
         modulesDirectories: ['node_modules', 'app'],
@@ -26,9 +27,9 @@ module.exports = {
                 loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
             },
             {
-                test: /\.scss$/,
+                test: /\.s?css$/,
                 loader: ExtractTextPlugin.extract('style?sourceMap', [
-                    'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+                    'css',
                     'autoprefixer?browsers=last 3 versions',
                     'resolve-url',
                     'sass?outputStyle=expanded&sourceMap'
@@ -37,7 +38,7 @@ module.exports = {
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 loaders: [
-                    'url?limit=8192',
+                    'url?name=[hash:8].[name].[ext]&limit=8192',
                     'img'
                 ]
             }
@@ -46,8 +47,15 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({isBrowser: true}),
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin("c/[name].css", {
+        new ExtractTextPlugin("[name].[contenthash:8].css", {
+          allChunks: true,
           disable: false
+        }),
+        new HtmlWebpackPlugin({
+          title: "kreding",
+          filename: "frame.html",
+          favicon: "favicon.ico",
+          template: path.join(__dirname, "app/frame.js")
         }),
         new webpack.NoErrorsPlugin()
     ],

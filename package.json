@@ -9,7 +9,7 @@
     "postinstall": "NODE_ENV=production webpack --progress --colors --config webpack.prod.config.js",
     "test": "./node_modules/mocha/bin/mocha --require ./app/tests/test_starter.js --require ./app/tests/test_helper.js ./app --recursive",
     "test:watch": "npm run test -- --watch",
-    "build": "NODE_ENV=production webpack --progress --colors --config webpack.prod.config.js"
+    "build": "NODE_ENV=production webpack --progress --colors --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -52,6 +52,7 @@
     "chai-immutable": "^1.5.3",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.16.1",
     "mocha": "^2.3.4",
     "react-hot-loader": "^1.3.0",
     "resolve-url-loader": "^1.4.3",

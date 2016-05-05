@@ -1,3 +1,4 @@
+import fs from 'fs';
 import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
@@ -45,28 +46,9 @@ app.use((req, res) => {
         store.dispatch(setItems(items));
         store.dispatch(setCart(cart));
         const initialState = store.getState();
-
         const componentHTML = renderToString(InitialComponent);
 
-        const HTML = `
-            <!DOCTYPE html>
-            <html>
-                <head>
-                    <meta charset="utf-8">
-                    <title>React Redux Fullstack Starter</title>
-
-                    <script>
-                        window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
-                    </script>
-                </head>
-                <body>
-                    <div id="app">${componentHTML}</div>
-                    <script src="/bundle.js"></script>
-                </body>
-            </html>
-        `;
-
-        res.end(HTML);
+        res.end(eval("`" + fs.readFileSync("public/frame.html") + "`"));
     });
 });
 
