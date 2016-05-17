@@ -2,6 +2,7 @@ if(typeof require.ensure !== 'function') require.ensure = (d, c) => c((t)=>{let 
 
 import App from 'components/App';
 import Home from 'components/Home';
+import Me from 'components/Me';
 
 export default {
   path: "/",
@@ -12,6 +13,6 @@ export default {
     })
   },
   indexRoute: {
-    component: Home
+    component: Me
   }
 }

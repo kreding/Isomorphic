@@ -21,6 +21,8 @@ var app = express();
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// 初始化路由信息
 serverRoutes(app);
 
 app.use((req, res) => {
@@ -43,9 +45,13 @@ app.use((req, res) => {
             </Provider>
         );
 
+        // 注入假数据
         store.dispatch(setItems(items));
         store.dispatch(setCart(cart));
+
+        // 获取初始的state信息，应用于frame.html模板中
         const initialState = store.getState();
+        // SPA的外部框架，应用于frame.html模板中
         const componentHTML = renderToString(InitialComponent);
 
         res.end(eval("`" + fs.readFileSync("public/frame.html") + "`"));

@@ -9,7 +9,8 @@
     "postinstall": "NODE_ENV=production webpack --progress --colors --config webpack.prod.config.js",
     "test": "./node_modules/mocha/bin/mocha --require ./app/tests/test_starter.js --require ./app/tests/test_helper.js ./app --recursive",
     "test:watch": "npm run test -- --watch",
-    "build": "NODE_ENV=production webpack --progress --colors --config webpack.config.js"
+    "build": "NODE_ENV=production webpack --progress --colors --config webpack.config.js",
+    "go": "npm run build & npm run dev"
   },
   "repository": {
     "type": "git",
@@ -40,7 +41,8 @@
     "react-router": "^1.0.3",
     "redux": "^3.0.5",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.10"
+    "webpack": "^1.12.10",
+    "window-or-global": "^1.0.1"
   },
   "engines": {
     "node": "0.12.0"
