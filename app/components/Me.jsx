@@ -51,7 +51,7 @@ export default class Me extends React.Component {
     return (
       <header className="main-header" ref="header" style={headerStyle}>
         <nav className="main-nav">
-            <Link className="main-nav__link" to="/">鞠学健</Link>
+            <Link className="main-nav__link" to="/">God bless me</Link>
             <div className="main-nav__menu-container">
                 <Link className="main-nav__link" to="/">首页</Link>
                 <Link className="main-nav__link" to="about">关于我</Link>
