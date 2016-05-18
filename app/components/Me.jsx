@@ -10,21 +10,37 @@ export default class Me extends React.Component {
     }
   }
   componentDidMount(){
-    console.log(this.state.windowHeight)
+    window.addEventListener('resize', this.adjustVideoShape.bind(this));
   }
 
   adjustVideoShape(){
+    let headerEle = this.refs.header;
+    let videoEle = this.refs.bg_video;
+    let radio = window.innerWidth / window.innerHeight;
 
+    if(radio > 1.78){
+      headerEle.style.height = "auto";
+      headerEle.style.width = window.innerWidth + "px";
+
+      videoEle.style.height = "auto";
+      videoEle.style.width = window.innerWidth + "px";
+    }else{
+      headerEle.style.width = "auto";
+      headerEle.style.height = window.innerHeight + "px";
+
+      videoEle.style.width = "auto";
+      videoEle.style.height = window.innerHeight + "px";
+    }
   }
 
   render() {
-    var winHeight=this.state.windowHeight;
-    var headerStyle={
+    let winHeight=this.state.windowHeight;
+    let headerStyle={
       width: "auto",
       height: winHeight + "px"
     }
     return (
-      <header className="main-header" style={headerStyle}>
+      <header className="main-header" style={headerStyle} ref="header">
         <nav className="main-nav">
             <Link className="main-nav__link" to="/">鞠学健</Link>
             <div className="main-nav__menu-container">
@@ -34,7 +50,7 @@ export default class Me extends React.Component {
         </nav>
         <div className="main-header-bg-wrapper">
           <div className="main-header-bg">
-            <video autoPlay loop style={headerStyle}>
+            <video autoPlay loop style={headerStyle} ref="bg_video">
               <source src="http://7sbr7d.com1.z0.glb.clouddn.com/bg.mp4" type="video/mp4"></source>
             </video>
           </div>
