@@ -45,7 +45,12 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.DefinePlugin({isBrowser: true}),
+        new webpack.DefinePlugin({
+          isBrowser: true,
+          'process.env': {
+            NODE_ENV: '"production"'
+          }
+        }),
         new webpack.HotModuleReplacementPlugin(),
         new ExtractTextPlugin("[name].[contenthash:8].css", {
           allChunks: true,

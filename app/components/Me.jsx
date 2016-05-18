@@ -10,6 +10,7 @@ export default class Me extends React.Component {
     }
   }
   componentDidMount(){
+    this.adjustVideoShape();
     window.addEventListener('resize', this.adjustVideoShape.bind(this));
   }
 
@@ -34,13 +35,13 @@ export default class Me extends React.Component {
   }
 
   render() {
-    let winHeight=this.state.windowHeight;
-    let headerStyle={
-      width: "auto",
-      height: winHeight + "px"
-    }
+    // let winHeight=this.state.windowHeight;
+    // let headerStyle={
+    //   width: "auto",
+    //   height: winHeight + "px"
+    // }
     return (
-      <header className="main-header" style={headerStyle} ref="header">
+      <header className="main-header" ref="header">
         <nav className="main-nav">
             <Link className="main-nav__link" to="/">鞠学健</Link>
             <div className="main-nav__menu-container">
@@ -50,7 +51,7 @@ export default class Me extends React.Component {
         </nav>
         <div className="main-header-bg-wrapper">
           <div className="main-header-bg">
-            <video autoPlay loop style={headerStyle} ref="bg_video">
+            <video autoPlay loop ref="bg_video">
               <source src="http://7sbr7d.com1.z0.glb.clouddn.com/bg.mp4" type="video/mp4"></source>
             </video>
           </div>
