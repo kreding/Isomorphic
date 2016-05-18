@@ -11,6 +11,7 @@ export default class Me extends React.Component {
   }
   componentDidMount(){
     this.adjustVideoShape();
+    this.refs.header.style.display = "block";
     window.addEventListener('resize', this.adjustVideoShape.bind(this));
   }
 
@@ -32,6 +33,8 @@ export default class Me extends React.Component {
       videoEle.style.width = "auto";
       videoEle.style.height = window.innerHeight + "px";
     }
+
+    headerEle.style.display = "block";
   }
 
   render() {
