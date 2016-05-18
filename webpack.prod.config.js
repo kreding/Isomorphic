@@ -10,7 +10,7 @@ fs.readdirSync('node_modules')
       return ['.bin'].indexOf(x) === -1;
     })
     .forEach(function(mod) {
-        nodeModules[mod] = 'commonjs ' + mod;
+        nodeModules[mod] =  mod;
     });
 
 module.exports = {
@@ -66,8 +66,12 @@ module.exports = {
           favicon: "favicon.ico",
           template: path.join(__dirname, "app/frame.js")
         }),
-        new webpack.NoErrorsPlugin()
-    ],
-    target: 'node',
-    externals: nodeModules
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        })
+    ]
+    // target: 'node',
+    // externals: nodeModules
 };

@@ -74,8 +74,8 @@ module.exports = {
         }),
         new webpack.NoErrorsPlugin()
     ],
-    target: 'node',
-    externals: nodeModules,
+    // target: 'node',
+    // externals: nodeModules,
     devServer: {
         hot: true,
         proxy: {
