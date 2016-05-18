@@ -4,18 +4,38 @@
   z-index: 1;
   overflow: hidden;
   color: rgba(255, 255, 255, .9);
-}
 
-#app, .main-header-bg{
-  position: absolute;
-  z-index: -1;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
-  overflow: hidden;
-  background-image: url("http://7sbr7d.com1.z0.glb.clouddn.com/images/poster.jpg");
-  background-size: cover;
-  background-position: 0 50%;
-  background-repeat: no-repeat;
+  &-bg{
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    overflow: hidden;
+    background-image: url("http://7sbr7d.com1.z0.glb.clouddn.com/images/poster.jpg");
+    background-size: cover;
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+  }
+
+  &-avatar{
+    text-align: center;
+    top: 50%;
+    position: relative;
+    margin-top: -80px;
+    img{
+      width: 100px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+    }
+    &::after{
+      content: "鞠学健";
+      font-size: 26px;
+      display: block;
+    }
+  }
+}
+#app{
+  @extend .main-header-bg;
 }

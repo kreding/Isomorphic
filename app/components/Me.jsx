@@ -10,7 +10,6 @@ export default class Me extends React.Component {
     }
   }
   componentDidMount(){
-    this.refs.header.style.display = "block";
     window.addEventListener('resize', this.adjustVideoShape.bind(this));
   }
 
@@ -64,6 +63,9 @@ export default class Me extends React.Component {
               <source src="http://7sbr7d.com1.z0.glb.clouddn.com/bg.mp4" type="video/mp4"></source>
             </video>
           </div>
+        </div>
+        <div className="main-header-avatar">
+          <img src="/avatar.png" />
         </div>
       </header>
     );
