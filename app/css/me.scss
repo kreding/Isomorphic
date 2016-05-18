@@ -22,7 +22,8 @@
   &-avatar{
     text-align: center;
     top: 50%;
-    position: relative;
+    position: absolute;
+    width: 100%;
     margin-top: -80px;
     img{
       width: 100px;
