@@ -17,6 +17,9 @@ export default class Me extends React.Component {
   adjustVideoShape(){
     let headerEle = this.refs.header;
     let videoEle = this.refs.bg_video;
+    if(!headerEle || !videoEle){
+      return;
+    }
     let radio = window.innerWidth / window.innerHeight;
 
     if(radio > 1.78){
