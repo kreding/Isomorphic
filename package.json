@@ -9,8 +9,11 @@
     "postinstall": "NODE_ENV=production webpack --progress --colors --config webpack.prod.config.js",
     "test": "./node_modules/mocha/bin/mocha --require ./app/tests/test_starter.js --require ./app/tests/test_helper.js ./app --recursive",
     "test:watch": "npm run test -- --watch",
+    "clear": "rm -rf ./public && mkdir ./public",
     "build": "NODE_ENV=production webpack --progress --colors --config webpack.config.js",
-    "go": "npm run build & npm run dev"
+    "build_prd": "NODE_ENV=production webpack --colors --config webpack.prod.config.js",
+    "go": "npm run clear & npm run build & npm run dev",
+    "online": "npm run clear & npm run build_prd & npm run start"
   },
   "repository": {
     "type": "git",

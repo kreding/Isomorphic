@@ -1,7 +1,17 @@
 var path = require('path');
+var fs = require('fs');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+var nodeModules = {};
+fs.readdirSync('node_modules')
+    .filter(function(x) {
+      return ['.bin'].indexOf(x) === -1;
+    })
+    .forEach(function(mod) {
+        nodeModules[mod] = 'commonjs ' + mod;
+    });
 
 module.exports = {
     devtool: 'inline-source-map',
@@ -64,6 +74,8 @@ module.exports = {
         }),
         new webpack.NoErrorsPlugin()
     ],
+    target: 'node',
+    externals: nodeModules,
     devServer: {
         hot: true,
         proxy: {
