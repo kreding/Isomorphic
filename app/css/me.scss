@@ -4,7 +4,6 @@
   z-index: 1;
   overflow: hidden;
   color: rgba(255, 255, 255, .9);
-  display: none;
 }
 
 .main-header-bg{
@@ -19,7 +18,4 @@
   background-size: cover;
   background-position: 0 50%;
   background-repeat: no-repeat;
-}
-#app{
-  @extend .main-header-bg;
 }
