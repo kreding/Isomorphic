@@ -33,6 +33,8 @@ export default class Me extends React.Component {
       videoEle.style.width = "auto";
       videoEle.style.height = window.innerHeight + "px";
     }
+
+    headerEle.style.display = "block";
   }
 
   render() {
