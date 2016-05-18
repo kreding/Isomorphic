@@ -5,3 +5,17 @@
   color: rgba(255, 255, 255, .9);
   display: none;
 }
+
+.main-header-bg{
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  overflow: hidden;
+  background-image: url("http://7sbr7d.com1.z0.glb.clouddn.com/images/poster.jpg");
+  background-size: cover;
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+}
