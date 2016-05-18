@@ -10,9 +10,9 @@ export default class Me extends React.Component {
     }
   }
   componentDidMount(){
-    this.adjustVideoShape();
+    // this.adjustVideoShape();
     this.refs.header.style.display = "block";
-    window.addEventListener('resize', this.adjustVideoShape.bind(this));
+    // window.addEventListener('resize', this.adjustVideoShape.bind(this));
   }
 
   adjustVideoShape(){
@@ -38,13 +38,19 @@ export default class Me extends React.Component {
   }
 
   render() {
-    // let winHeight=this.state.windowHeight;
-    // let headerStyle={
-    //   width: "auto",
-    //   height: winHeight + "px"
-    // }
+    let radio = window.innerWidth / window.innerHeight;
+    let headerStyle={
+      height: "auto",
+      width: window.innerWidth + "px"
+    }
+
+    if(radio < 1.78){
+      headerStyle.width="auto";
+      headerStyle.height=window.innerHeight+"px";
+    }
+
     return (
-      <header className="main-header" ref="header">
+      <header className="main-header" ref="header" style={headerStyle}>
         <nav className="main-nav">
             <Link className="main-nav__link" to="/">鞠学健</Link>
             <div className="main-nav__menu-container">
@@ -54,7 +60,7 @@ export default class Me extends React.Component {
         </nav>
         <div className="main-header-bg-wrapper">
           <div className="main-header-bg">
-            <video autoPlay loop ref="bg_video">
+            <video autoPlay loop ref="bg_video" style={headerStyle}>
               <source src="http://7sbr7d.com1.z0.glb.clouddn.com/bg.mp4" type="video/mp4"></source>
             </video>
           </div>
