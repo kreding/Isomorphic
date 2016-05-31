@@ -22,7 +22,7 @@ export default class Me extends React.Component {
     let radio = window.innerWidth / window.innerHeight;
 
     if(radio > 1.78){
-      headerEle.style.height = "auto";
+      headerEle.style.height = window.innerHeight + "px";
       headerEle.style.width = window.innerWidth + "px";
 
       videoEle.style.height = "auto";
