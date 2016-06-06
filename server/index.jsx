@@ -20,7 +20,7 @@ global.isBrowser = false;
 var app = express();
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('_public'));
 
 // 初始化路由信息
 serverRoutes(app);
@@ -54,7 +54,7 @@ app.use((req, res) => {
         // SPA的外部框架，应用于frame.html模板中
         const componentHTML = renderToString(InitialComponent);
 
-        res.end(eval("`" + fs.readFileSync("public/frame.html") + "`"));
+        res.end(eval("`" + fs.readFileSync("_public/frame.html") + "`"));
     });
 });
 

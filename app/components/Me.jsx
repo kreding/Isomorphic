@@ -39,7 +39,7 @@ export default class Me extends React.Component {
   render() {
     let radio = window.innerWidth / window.innerHeight;
     let headerStyle={
-      height: window.innerHeight + "px",
+      height: "auto",
       width: window.innerWidth + "px"
     }
     let videoStyle;
@@ -49,10 +49,9 @@ export default class Me extends React.Component {
       headerStyle.height=window.innerHeight+"px";
 
       videoStyle={
-      height: "auto",
-      width: window.innerWidth + "px"
+        height: "auto",
+        width: window.innerWidth + "px"
       };
-
     }
 
     return (

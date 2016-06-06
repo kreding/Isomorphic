@@ -16,7 +16,7 @@ fs.readdirSync('node_modules')
 module.exports = {
     entry: ['./app/components'],
     output: {
-        path: path.join(__dirname, 'public'),
+        path: path.join(__dirname, '_public'),
         filename: '[name].[hash:8].js',
         chunkFilename: '[id].chunk.[chunkhash:8].js'
     },
