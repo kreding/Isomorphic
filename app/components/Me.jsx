@@ -42,6 +42,7 @@ export default class Me extends React.Component {
       height: window.innerHeight + "px",
       width: window.innerWidth + "px"
     }
+    let videoStyle;
 
     if(radio < 1.78){
       headerStyle.width="auto";
