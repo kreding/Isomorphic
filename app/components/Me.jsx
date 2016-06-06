@@ -39,7 +39,7 @@ export default class Me extends React.Component {
   render() {
     let radio = window.innerWidth / window.innerHeight;
     let headerStyle={
-      height: "auto",
+      height: window.innerHeight + "px",
       width: window.innerWidth + "px"
     }
 
