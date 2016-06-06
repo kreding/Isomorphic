@@ -46,6 +46,12 @@ export default class Me extends React.Component {
     if(radio < 1.78){
       headerStyle.width="auto";
       headerStyle.height=window.innerHeight+"px";
+
+      videoStyle={
+      height: "auto",
+      width: window.innerWidth + "px"
+      };
+
     }
 
     return (
@@ -59,7 +65,7 @@ export default class Me extends React.Component {
         </nav>
         <div className="main-header-bg-wrapper">
           <div className="main-header-bg">
-            <video autoPlay loop ref="bg_video" style={headerStyle}>
+            <video autoPlay loop ref="bg_video" style={videoStyle}>
               <source src="http://7sbr7d.com1.z0.glb.clouddn.com/bg.mp4" type="video/mp4"></source>
             </video>
           </div>
