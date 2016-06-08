@@ -12,8 +12,11 @@ import { makeStore } from 'helpers';
 import { Provider } from 'react-redux';
 import { setItems, setCart } from 'actions/ProductsActions';
 
-import items from 'server/fake-database-items.js';
-import cart from 'server/fake-database-cart.js';
+// 连接数据库Mongoose
+import 'server/model/Postgre'
+
+import items from 'server/mock/fake-database-items.js';
+import cart from 'server/mock/fake-database-cart.js';
 
 global.isBrowser = false;
 
@@ -22,7 +25,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(express.static('_public'));
 
-// 初始化路由信息
+// 初始化服务端路由信息，这部分路由仅用于异步请求
 serverRoutes(app);
 
 app.use((req, res) => {

@@ -13,6 +13,6 @@ export default {
     })
   },
   indexRoute: {
-    component: Me
+    component: Home
   }
 }
