@@ -12,8 +12,8 @@ import { makeStore } from 'helpers';
 import { Provider } from 'react-redux';
 import { setItems, setCart } from 'actions/ProductsActions';
 
-// 连接数据库Mongoose
-import 'server/model/Postgre'
+// 连接数据库Postgre
+// import 'server/model/Postgre'
 
 import items from 'server/mock/fake-database-items.js';
 import cart from 'server/mock/fake-database-cart.js';
